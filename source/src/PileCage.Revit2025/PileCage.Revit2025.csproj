@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net8.0-windows</TargetFramework><UseWPF>true</UseWPF><UseWindowsForms>true</UseWindowsForms><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><EnableDynamicLoading>true</EnableDynamicLoading><AssemblyName>PileCage.Revit2025.V1</AssemblyName><Version>1.0.0</Version><RevitRoot Condition="'$(RevitRoot)' == ''">$(ProgramW6432)\Autodesk\Revit 2025</RevitRoot></PropertyGroup>
+  <ItemGroup><Using Remove="System.Windows.Forms" /><Using Remove="System.Drawing" /></ItemGroup>
+  <ItemGroup><Reference Include="RevitAPI"><HintPath>$(RevitRoot)\RevitAPI.dll</HintPath><Private>false</Private></Reference><Reference Include="RevitAPIUI"><HintPath>$(RevitRoot)\RevitAPIUI.dll</HintPath><Private>false</Private></Reference></ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../../assets/icons/rebar-*.png" LogicalName="PileCage.Icons.%(Filename)%(Extension)" />
+    <EmbeddedResource Include="../../assets/family-library/PC_Chinese_Rebar_Types.rvt" Condition="Exists('../../assets/family-library/PC_Chinese_Rebar_Types.rvt')" LogicalName="PileCage.Library.PC_Chinese_Rebar_Types.rvt" />
+    <EmbeddedResource Include="../../assets/family-library/PC_PositionPlate_FaceBased.rfa" Condition="Exists('../../assets/family-library/PC_PositionPlate_FaceBased.rfa')" LogicalName="PileCage.Library.PC_PositionPlate_FaceBased.rfa" />
+  </ItemGroup>
+</Project>
